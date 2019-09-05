@@ -1,0 +1,13 @@
+@RestResource(urlMapping='/AgentDemoRestAPI/*')
+global with sharing class AgentDemoRestAPI {
+
+    @HttpPost
+    global static String doPost(String suggestion) {
+        Events__c evnt = new Events__c();
+        evnt.Name = suggestion;
+        evnt.suggestion__c = suggestion;
+        evnt.Agent_Name__c = 'agent 1';
+        insert evnt;
+        return evnt.Id;
+    }
+}
