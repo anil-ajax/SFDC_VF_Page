@@ -1,0 +1,11 @@
+trigger AgentDemoEmail on Contact (after insert) {
+
+    for(Contact c : trigger.new) {
+        if (c.Email != null) {
+            String address = c.Email;
+            String subject = ' asdfa asdfsdf';
+            String message = 'asdfasdf asdf a body';
+            EmailManager.sendMail(address, subject, message);
+        }
+    }
+}
