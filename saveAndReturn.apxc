@@ -1,0 +1,15 @@
+public class saveAndReturn {
+    private ApexPages.StandardController stdController;
+    public saveAndReturn(ApexPages.StandardController stdController) {
+        this.stdController = stdController;
+    }
+    
+    public PageReference autoRun() {
+       	stdController.save(); // This takes care of the details for you.
+        PageReference v = Page.AgentDemoContactView;
+        v.getParameters().put('id',stdController.getId());
+        v.setRedirect(true);
+        return v; 
+    }
+ 
+}
