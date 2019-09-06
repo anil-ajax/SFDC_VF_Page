@@ -1,18 +1,18 @@
-<apex:page standardController="Contact">
+<apex:page standardController="Contact" extensions="saveAndReturn">
 
 <apex:includeScript value="{! $Resource.jquery331 }"/>
 <apex:stylesheet value="{!URLFOR($Resource.AgentDemoCSS)}"/>
 <apex:includeScript value="{! $Resource.AgentDemoJS }"/>
   
   <div class='suggestions_container'></div>
-   <apex:form>
+   <apex:form >
   <div class="agent_demo">
   <div class="agent_demo_inner">
     
   <div class="left">
   
   <div class="left1">
-  <p><div class="label">detail Subject:</div> <input id="field1" placeholder="Please enter request subject" /></p>
+  <p><div class="label">Subject:</div> <input id="field1" placeholder="Please enter request subject" /></p>
   <p><div class="label">Case assign to:</div> <select id="field2"><option>Select</option></select></p>
   <p><div class="label">Case Origin:</div> <select id="field2"><option>Select</option></select></p>
   <p><div class="label">Case Category:</div> <select id="field2"><option>Select</option></select></p>
@@ -24,13 +24,13 @@
   
   <div class="left2">
   <p><div class="label">Account/Caller Name:</div> <input id="field1" /></p>
-  <p><div class="label">Contact Name:</div> {!Contact.LastName}</p>
-  <p><div class="label">Contact Email:</div> {!Contact.Email}</p>
+  <p><div class="label">Contact Name:</div> <apex:inputField value="{!Contact.LastName}"/></p>
+  <p><div class="label">Contact Email:</div> <apex:inputField value="{!Contact.Email}"/></p>
   <p><div class="label">Contact Number:</div> <input id="Phone" /></p>
   <p><div class="label">Priority:</div> <select id="field2"><option>Select</option></select></p>
   <p><div class="label">Status:</div> <select id="field2"><option>Select</option></select></p>
   <p>&nbsp;</p>
-  <p><div class="label">&nbsp;</div> <apex:commandButton action="{!quicksave}" value="Submit"/></p>
+  <p><div class="label">&nbsp;</div> <apex:commandButton action="{!autoRun}" value="Submit"/></p>
   
   </div>
   
