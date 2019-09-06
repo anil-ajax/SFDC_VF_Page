@@ -1,10 +1,13 @@
-trigger AgentDemoEmail on Contact (after insert) {
-
-    for(Contact c : trigger.new) {
-        if (c.Email != null) {
-            String address = c.Email;
-            String subject = ' asdfa asdfsdf';
-            String message = 'asdfasdf asdf a body';
+trigger AgentDemoEmail on Events__c (after insert) {
+     for(Events__c e : trigger.new) {
+     //Events__c e = trigger.new;
+        if (e.Suggestion__c == 'price details sent') {
+            Id cid = e.Contact__c; //String.valueOf(e.Contact__c).substring(0, 15); //e.Contact__c; 
+            Contact c = [select Email, LastName from contact where Id =:cid];
+            //Contact c = new Contact(Id=cid);
+            String address = c.Email; //'anil.sharma@rsystems.com';
+            String subject = 'Price details from R Systems';
+            String message = 'Dear Mr. '+c.LastName+'<br /><br />This is a sample dummy text';
             EmailManager.sendMail(address, subject, message);
         }
     }
