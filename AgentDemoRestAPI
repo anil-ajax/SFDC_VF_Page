@@ -6,8 +6,14 @@ global with sharing class AgentDemoRestAPI {
         Events__c evnt = new Events__c();
         evnt.Name = suggestion;
         evnt.suggestion__c = suggestion;
+        evnt.Contact__c= '0037F00001clYsZ';
         evnt.Agent_Name__c = 'agent 1';
         insert evnt;
-        return evnt.Id;
+        Id eid = evnt.Id;
+        if(eid != null) {
+            return 'success';
+        }else{
+            return 'failure';
+        }
     }
 }
