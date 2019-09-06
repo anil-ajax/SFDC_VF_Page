@@ -1,0 +1,9 @@
+<apex:page showHeader="false" controller="AgentDemo">
+<apex:pageBlock title="">
+  <apex:pageBlockTable value="{!Records}" var="Record">
+   <apex:column >
+    <div class='suggestion'><apex:outputText value="{!Record.Suggestion__c}"/></div>
+   </apex:column>
+  </apex:pageBlockTable>
+</apex:pageBlock>
+</apex:page>
