@@ -5,7 +5,7 @@
 <apex:includeScript value="{! $Resource.AgentDemoJS }"/>
   
   <div class='suggestions_container'></div>
-   <apex:form>
+   <apex:form >
   <div class="agent_demo">
   <div class="agent_demo_inner">
     
